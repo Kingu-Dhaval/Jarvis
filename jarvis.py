@@ -21,7 +21,7 @@ def speak(speech):
 
 def main():
 	
-	os.chdir('D:Python/Kings')
+	os.chdir('D:Python/Jarvis')
 	webbrowser.open('http://localhost/jarvis/jarvis.php')
 	async def hello(websocket, path):
 	

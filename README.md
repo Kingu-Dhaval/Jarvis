@@ -13,8 +13,10 @@ Requirements :
 
 asyncio,
 websockets,
-pygame,
-gTTS,
+pypiwin32,
+pttsx,
 webbrowser
 
-use pip to install requirement
+Intall from git
+pip install git+git://github.com/jpercent/pyttsx.git
+

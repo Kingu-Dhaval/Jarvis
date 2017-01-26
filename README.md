@@ -14,7 +14,6 @@ Requirements :
 asyncio,
 websockets,
 pypiwin32,
-pttsx,
 webbrowser
 
 Intall from git

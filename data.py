@@ -6,7 +6,8 @@ training_data = [
 	('what is the weather','question'),
 	('hey','greeting'),
 	('play some music','music'),
-	('play song of adele','music')]
+	('play song of adele','music'),
+	('define abase','dictionary')]
 
 test_data = [
 	('hi jarvis','greeting'),

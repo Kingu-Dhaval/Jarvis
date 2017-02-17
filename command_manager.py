@@ -2,6 +2,7 @@ import os
 from pygame import mixer
 from gtts import gTTS
 import pyttsx
+import random
 
 class CommandManager:
 	
@@ -19,7 +20,9 @@ class CommandManager:
 			self.speak('I do not understand')
 			
 	def greeting(self):
-		self.speak('hello sir')
+		response = ['hello sir', 'hi']
+		
+		self.speak(response[random.randint(0,1)])
 		
 	def music(self):
 		self.speak('sorry sir, i can not play music now')

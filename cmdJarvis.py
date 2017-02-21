@@ -1,6 +1,9 @@
 import asyncio
 import websockets
 import os
+from pygame import mixer
+from gtts import gTTS
+from tempfile import TemporaryFile
 import sys
 import webbrowser
 from jarvisBrain import Brain
@@ -15,37 +18,26 @@ def speak(speech):
 
 def main():
 	
-	os.chdir('D:Python/Jarvis')
-	webbrowser.open('http://localhost/jarvis/jarvis.php')
+	os.chdir('D:Python/Jarvis-master')
+	#webbrowser.open('http://localhost/jarvis/jarvis.php')
 	java_path = "C:\Program Files\Java\jdk1.8.0_101\\bin\java.exe"
 	os.environ['JAVAHOME'] = java_path
 	brain = Brain()
 	commandManager = CommandManager()
 	
-	async def hello(websocket, path):
+	while(True):
 	
-		#Listen ----------
-		msg = await websocket.recv()
-		#msg = input('Enter command')
-		print("< {}".format(msg))
-		
-		# THINK HERE ----------------------------------------------
-		#------
-		#------
+		msg = input()
 		cmd = brain.getCommand(msg)
-		
 		#React
 		commandManager.callCommand(cmd, msg)
 		if msg == " close" or msg == "close":
-			asyncio.get_event_loop().stop()
+			break
+	print("closed")
 			
-		#Reply
-		#speak(msg)
 		
-	start_server = websockets.serve(hello, 'localhost', 9999)
-	loop=asyncio.get_event_loop()
-	loop.run_until_complete(start_server)
-	loop.run_forever()
+		
+	
 
 if __name__ == "__main__":
 	main()

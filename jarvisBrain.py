@@ -1,5 +1,6 @@
 import data
 import nltk
+import pickle
 from nltk.tokenize import word_tokenize
 
 class Brain:
@@ -8,10 +9,13 @@ class Brain:
 		self.train()
 	
 	def train(self):
-		td = data.training_data
-		self.all_words = set(word.lower() for passage in td for word in word_tokenize(passage[0]))
-		t = [({word: (word in word_tokenize(x[0])) for word in self.all_words}, x[1]) for x in td]
-		self.classifier = nltk.NaiveBayesClassifier.train(t)
+		all_words_file = open("trainer/words.pickle", "rb")
+		self.all_words = pickle.load(all_words_file)
+		all_words_file.close()
+		
+		classifier_f = open("trainer/naivebayes.pickle", "rb")
+		self.classifier = pickle.load(classifier_f)
+		classifier_f.close()
 		
 	def getCommand(self, text):
 		featurized_test_sentence = {i:(i in word_tokenize(text.lower())) for i in self.all_words}

@@ -7,7 +7,10 @@ training_data = [
 	('hey','greeting'),
 	('play some music','music'),
 	('play song of adele','music'),
-	('define abase','dictionary')]
+	('define abase','dictionary'),
+	('what is the meaning of succinct','dictionary'),
+	('define abysmal','dictionary'),
+	('tell me the meaning of abysmal','dictionary')]
 
 test_data = [
 	('hi jarvis','greeting'),
